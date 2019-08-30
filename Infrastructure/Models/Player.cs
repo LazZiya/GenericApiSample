@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Models
+{
+    public class Player : IHasId<string>
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int Level { get; set; }
+    }
+}
