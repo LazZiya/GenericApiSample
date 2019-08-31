@@ -28,19 +28,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var p in Model.Items)
+        @if (Model.TotalRecords == 0)
         {
+
             <tr>
-                <td>@p.Id</td>
-                <td>@p.Name</td>
-                <td>@p.Level</td>
-                <td>
-                    <a href="@Url.Page("./Update", null, new { Id = p.Id })" class="btn btn-dark">Update</a>
-                    <a href="@Url.Page("./Delete", null, new { Id = p.Id })" class="btn btn-danger">Delete</a>
+                <td colspan="5">
+                    <alert-info dismissable="false">No records</alert-info>
                 </td>
             </tr>
         }
-    </tbody>
+        else
+        {
+            foreach (var p in Model.Items)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Name</td>
+                    <td>@p.Level</td>
+                    <td>
+                        <a href="@Url.Page("./Update", null, new { Id = p.Id })" class="btn btn-dark">Update</a>
+                        <a href="@Url.Page("./Delete", null, new { Id = p.Id })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
     <tfoot>
         <tr>
             <td colspan="4">

@@ -14,6 +14,12 @@ namespace WebApi.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Player>().HasData(InitialDataSeed.Players);
+            modelBuilder.Entity<Treasure>().HasData(InitialDataSeed.Treasures);
+        }
+
         public DbSet<Player> Players { get; set; }
         public DbSet<Treasure> Treasures { get; set; }
     }
