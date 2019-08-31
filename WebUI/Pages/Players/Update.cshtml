@@ -1,26 +1,26 @@
 ﻿@page
-@model WebUI.Pages.Players.CreateModel
+@model WebUI.Pages.Players.UpdateModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
-<h1>Create new player</h1>
+<h1>Update Player</h1>
 <alert view-context="ViewContext"></alert>
 
-<div class="row">
+<div>
     <form method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Input.Name"></label>
             <input asp-for="Input.Name" class="form-control" />
             <span asp-validation-for="Input.Name" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="Input.Level"></label>
             <input asp-for="Input.Level" class="form-control" />
-            <span asp-validation-for="Input.Level"></span>
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <input type="hidden" asp-for="Input.Id" />
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="@Url.Page("./Index")" class="btn btn-light">Cancel</a>
     </form>
 </div>

@@ -1,10 +1,10 @@
 ﻿@page
-@model WebUI.Pages.Players.CreateModel
+@model WebUI.Pages.Treasures.CreateModel
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create new player</h1>
+<h1>Create new treasure</h1>
 <alert view-context="ViewContext"></alert>
 
 <div class="row">
@@ -17,10 +17,17 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Input.Level"></label>
-            <input asp-for="Input.Level" class="form-control" />
-            <span asp-validation-for="Input.Level"></span>
+            <label asp-for="Input.Kind"></label>
+            <input asp-for="Input.Kind" class="form-control" />
+            <span asp-validation-for="Input.Kind"></span>
         </div>
+
+        <div class="form-group">
+            <label asp-for="Input.Price"></label>
+            <input asp-for="Input.Price" class="form-control" />
+            <span asp-validation-for="Input.Price"></span>
+        </div>
+
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>

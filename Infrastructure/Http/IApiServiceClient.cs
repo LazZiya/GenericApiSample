@@ -11,6 +11,7 @@ namespace Infrastructure.Http
         Task<bool> AddAsync<T>(T value);
         Task<bool> UpdateAsync<T, TKey>(TKey id, T value);
         Task<bool> DeleteAsync<TKey>(TKey id);
-        (Task<IEnumerable<T>>, Task<double>) GetListAsync<T>(int pageNo, int pageSize);
+        Task<(IEnumerable<T>, int)> GetListAsync<T>(int pageNo, int pageSize);
+        void ConfigureOptions(Action<ApiServiceClientOptions> p);
     }
 }

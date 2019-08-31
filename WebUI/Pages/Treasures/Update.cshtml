@@ -1,0 +1,32 @@
+﻿@page
+@model WebUI.Pages.Treasures.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update TReasure</h1>
+<alert view-context="ViewContext"></alert>
+
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Input.Name"></label>
+            <input asp-for="Input.Name" class="form-control" />
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Kind"></label>
+            <input asp-for="Input.Kind" class="form-control" />
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Input.Price"></label>
+            <input asp-for="Input.Price" class="form-control" />
+            <span asp-validation-for="Input.Price" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="Input.Id" />
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="@Url.Page("./Index")" class="btn btn-light">Cancel</a>
+    </form>
+</div>

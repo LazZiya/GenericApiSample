@@ -1,0 +1,63 @@
+﻿@page
+@model WebUI.Pages.Players.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Players list</h1>
+@*
+    AlertTagHelper
+    - documents: http://www.ziyad.info/en/articles/37-Alert_TagHelpers
+    - demos:     http://demo.ziyad.info/en/Alerts
+
+*@
+<alert view-context="ViewContext"></alert>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th colspan="4">
+                <a href="@Url.Page("Create")" class="btn btn-success">New</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Level</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Items)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>@p.Level</td>
+                <td>
+                    <a href="@Url.Page("./Update", null, new { Id = p.Id })" class="btn btn-dark">Update</a>
+                    <a href="@Url.Page("./Delete", null, new { Id = p.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                @*
+                    PagingTagHelper
+                    - documents: http://www.ziyad.info/en/articles/21-Paging_TagHelper_for_ASP_NET_Core
+                    - demos:     http://demo.ziyad.info/en/Paging
+
+                *@
+                <paging total-records="Model.TotalRecords"
+                        page-no="Model.P"
+                        page-size="Model.S"
+                        show-total-records="true"
+                        show-total-pages="true"
+                        show-prev-next="true">
+                </paging>
+            </td>
+        </tr>
+    </tfoot>
+</table>

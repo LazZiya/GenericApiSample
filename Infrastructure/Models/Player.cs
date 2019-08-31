@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Models
 {
-    public class Player : IHasId<string>
+    public class Player : IHasId<string>, IOrdered
     {
         public string Id { get; set; }
         public string Name { get; set; }

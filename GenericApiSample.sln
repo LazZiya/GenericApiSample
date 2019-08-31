@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{B153678D-4D52-4B94-8715-46BF45307DEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{7258043F-91B0-4608-8ADC-019A76D525AB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1257BEEF-A698-4DA8-8860-B1A69AB912B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{91240BBB-671E-4135-BCB0-A7C9D26CF77D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{91240BBB-671E-4135-BCB0-A7C9D26CF77D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{B153678D-4D52-4B94-8715-46BF45307DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B153678D-4D52-4B94-8715-46BF45307DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B153678D-4D52-4B94-8715-46BF45307DEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7258043F-91B0-4608-8ADC-019A76D525AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7258043F-91B0-4608-8ADC-019A76D525AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7258043F-91B0-4608-8ADC-019A76D525AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7258043F-91B0-4608-8ADC-019A76D525AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1257BEEF-A698-4DA8-8860-B1A69AB912B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1257BEEF-A698-4DA8-8860-B1A69AB912B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1257BEEF-A698-4DA8-8860-B1A69AB912B0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LazZiya.TagHelpers.Alerts;
 
-namespace WebUI.Pages.Players
+namespace WebUI.Pages.Treasures
 {
     [ValidateAntiForgeryToken]
     public class CreateModel : PageModel
@@ -15,11 +15,11 @@ namespace WebUI.Pages.Players
         public CreateModel(IApiServiceClient client)
         {
             _client = client;
-            _client.ConfigureOptions(ops => { ops.TargetController = "players"; });
+            _client.ConfigureOptions(ops => { ops.TargetController = "treasures"; });
         }
 
         [BindProperty]
-        public Player Input { get; set; }
+        public Treasure Input { get; set; }
 
         public void OnGet()
         {
@@ -36,15 +36,15 @@ namespace WebUI.Pages.Players
 
             try
             {
-                var success = await _client.AddAsync<Player>(Input);
+                var success = await _client.AddAsync<Treasure>(Input);
                 if (success)
                 {
-                    TempData.Success("New player saved!");
+                    TempData.Success("New treasure saved!");
                     return RedirectToPage("./Index");
                 }
                 else
                 {
-                    TempData.Danger("New player not saved!");
+                    TempData.Danger("New treasure not saved!");
                 }
             }
             catch (HttpRequestException e)

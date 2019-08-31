@@ -6,7 +6,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlayersController : GenericController<Player, string>
+    public class PlayersController : GenericBaseController<Player, string>
     {
         public PlayersController(ApplicationDbContext context) : base(context)
         {

@@ -1,0 +1,31 @@
+﻿@page
+@model WebUI.Pages.Treasures.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Treasure</h1>
+<alert view-context="ViewContext"></alert>
+<alert-danger dismissable="false">Are you sure you want to delete this treasure?</alert-danger>
+
+<div>
+    <div class="form-group">
+        <label asp-for="Input.Name"></label>
+        <span class="form-control">@Model.Input.Name</span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Kind"></label>
+        <span class="form-control">@Model.Input.Kind</span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Input.Price"></label>
+        <span class="form-control">@Model.Input.Price</span>
+    </div>
+
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Page("./Index")" class="btn btn-light">Cancel</a>
+    </form>
+</div>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Models
 {
-    public class Treasure : IHasId<int>
+    public class Treasure : IHasId<int>, IOrdered
     {
         public int Id { get; set; }
         public string Name { get; set; }
