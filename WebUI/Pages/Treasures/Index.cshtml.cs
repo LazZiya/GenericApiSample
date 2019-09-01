@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Infrastructure.Http;
+using ApiServiceClient;
 using Infrastructure.Models;
 using LazZiya.TagHelpers.Alerts;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +13,9 @@ namespace WebUI.Pages.Treasures
 {
     public class IndexModel : PageModel
     {
-        private readonly IApiServiceClient _client;
+        private readonly IHttpServiceClient _client;
 
-        public IndexModel(IApiServiceClient client)
+        public IndexModel(IHttpServiceClient client)
         {
             _client = client;
             _client.ConfigureOptions(ops => { ops.TargetController = "treasures"; });

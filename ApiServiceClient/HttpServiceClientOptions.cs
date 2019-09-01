@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Infrastructure.Http
+namespace ApiServiceClient
 {
-    public class ApiServiceClientOptions
+    public class HttpServiceClientOptions
     {
         public string TargetController { get; set; }
         public Uri BaseAddress { get; set; }

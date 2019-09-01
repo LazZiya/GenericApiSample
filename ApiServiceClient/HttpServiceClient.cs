@@ -1,17 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
-using System.Collections;
-using System.IO;
-using System.Linq;
-
-namespace Infrastructure.Http
+namespace ApiServiceClient
 {
-    public class ApiServiceClient : IApiServiceClient
+    public class HttpServiceClient : IHttpServiceClient
     {
         private readonly HttpClient client;
         private string requestUri { get; set; }
@@ -20,7 +14,7 @@ namespace Infrastructure.Http
         /// creates http client to make api calls
         /// </summary>
         /// <param name="targetController">api controller name e.g. players</param>
-        public ApiServiceClient()
+        public HttpServiceClient()
         {
             //if (string.IsNullOrEmpty(targetController))
             //    throw new ArgumentNullException(nameof(targetController));
@@ -30,9 +24,9 @@ namespace Infrastructure.Http
             //requestUri = $"api/{targetController}/";
         }
 
-        public void ConfigureOptions(Action<ApiServiceClientOptions> options)
+        public void ConfigureOptions(Action<HttpServiceClientOptions> options)
         {
-            var ops = new ApiServiceClientOptions();
+            var ops = new HttpServiceClientOptions();
             options.Invoke(ops);
 
             client.BaseAddress = ops.BaseAddress ?? new Uri("https://localhost:44376/api/");

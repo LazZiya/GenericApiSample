@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Infrastructure.Http;
+using ApiServiceClient;
 using Infrastructure.Models;
 using LazZiya.TagHelpers.Alerts;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +13,9 @@ namespace WebUI.Pages.Players
     [ValidateAntiForgeryToken]
     public class UpdateModel : PageModel
     {
-        private readonly IApiServiceClient _client;
+        private readonly IHttpServiceClient _client;
 
-        public UpdateModel(IApiServiceClient client)
+        public UpdateModel(IHttpServiceClient client)
         {
             _client = client;
             _client.ConfigureOptions(ops => { ops.TargetController = "players"; });

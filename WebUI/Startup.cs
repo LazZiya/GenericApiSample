@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Infrastructure.Http;
+using ApiServiceClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +38,7 @@ namespace WebUI
                 ops.ResourcesPath = "ddd";
             });
 
-            services.AddTransient<IApiServiceClient, ApiServiceClient>();
+            services.AddTransient<IHttpServiceClient, HttpServiceClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
