@@ -1,8 +1,18 @@
-# GenericApiSample
+# Generic Api Sample Project
 Sample web api project to show the usage of generic api controller.
 The Api project is "WebApi" it contains a [GenericBaseController](1) and two inherited controllers [PlayersController](2) and [TreasuresController](3).
 
-If you want to create a new controller just use the same structure as below:
+## Structure
+The solution containes 4 projects
+
+- WebUI : user interface, control panel
+- ApiServiceClient : generic Http serivce client to communicate with the API's
+- WebAPI : Genreic and non-generic API's
+- Infrastructure : common models and interfaces
+
+![Generic API Sample Project Structure](WebUI/wwwroot/files/Generic%20API%20Project%20Structure%20v1.JPG)
+
+If you want to create a new api controller inherit it from the GenericBaseController as below:
 ````cs
 [Route("api/[controller]")]
 [ApiController]
