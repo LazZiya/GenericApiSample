@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Infrastructure.Models
+namespace Domain.Models
 {
     /// <summary>
     /// IOrdered is required to order fields in paged collection

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiServiceClient;
-using Infrastructure.Models;
+using Domain.Models;
 using LazZiya.TagHelpers.Alerts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,9 +13,9 @@ namespace WebUI.Pages.Treasures
     [ValidateAntiForgeryToken]
     public class DeleteModel : PageModel
     {
-        private readonly IHttpServiceClient _client;
+        private readonly GenericApiService _client;
 
-        public DeleteModel(IHttpServiceClient client)
+        public DeleteModel(GenericApiService client)
         {
             _client = client;
             _client.ConfigureOptions(ops => { ops.TargetController = "treasures"; });

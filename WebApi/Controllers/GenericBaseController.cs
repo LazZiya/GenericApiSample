@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WebApi.Data;
-using Infrastructure.Models;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

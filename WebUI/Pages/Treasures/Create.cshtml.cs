@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
-using Infrastructure.Models;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LazZiya.TagHelpers.Alerts;
@@ -11,8 +11,8 @@ namespace WebUI.Pages.Treasures
     [ValidateAntiForgeryToken]
     public class CreateModel : PageModel
     {
-        private readonly IHttpServiceClient _client;
-        public CreateModel(IHttpServiceClient client)
+        private readonly GenericApiService _client;
+        public CreateModel(GenericApiService client)
         {
             _client = client;
             _client.ConfigureOptions(ops => { ops.TargetController = "treasures"; });

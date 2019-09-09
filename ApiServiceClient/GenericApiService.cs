@@ -5,37 +5,37 @@ using System.Threading.Tasks;
 
 namespace ApiServiceClient
 {
-    public class HttpServiceClient : IHttpServiceClient
+    // Typed client service
+    // read more here: 
+    // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-2.2#typed-clients
+    public class GenericApiService
     {
-        private readonly HttpClient client;
+        private readonly HttpClient _client;
         private string requestUri { get; set; }
 
         /// <summary>
         /// creates http client to make api calls
         /// </summary>
         /// <param name="targetController">api controller name e.g. players</param>
-        public HttpServiceClient()
+        public GenericApiService(HttpClient client)
         {
-            //if (string.IsNullOrEmpty(targetController))
-            //    throw new ArgumentNullException(nameof(targetController));
-
-            client = new HttpClient();
-
-            //requestUri = $"api/{targetController}/";
+            _client = client;
         }
 
-        public void ConfigureOptions(Action<HttpServiceClientOptions> options)
+        public void ConfigureOptions(Action<GenericApiServiceOptions> options)
         {
-            var ops = new HttpServiceClientOptions();
+            var ops = new GenericApiServiceOptions();
             options.Invoke(ops);
 
-            client.BaseAddress = ops.BaseAddress ?? new Uri("https://localhost:44376/api/");
+            if(_client.BaseAddress == null)
+                _client.BaseAddress = ops.BaseAddress;
+
             requestUri = ops.TargetController;
         }
 
         public async Task<bool> AddAsync<T>(T value)
         {
-            var task = await client.PostAsJsonAsync(requestUri, value);
+            var task = await _client.PostAsJsonAsync(requestUri, value);
 
             // ReadAsAync requires: Microsoft.AspNet.WebApi.Client nuget package
             return task.IsSuccessStatusCode
@@ -45,7 +45,7 @@ namespace ApiServiceClient
 
         public async Task<bool> DeleteAsync<TKey>(TKey id)
         {
-            var task = await client.DeleteAsync($"{requestUri}/{id}");
+            var task = await _client.DeleteAsync($"{requestUri}/{id}");
 
             return task.IsSuccessStatusCode
                 ? task.Content.ReadAsAsync<bool>().Result
@@ -54,7 +54,7 @@ namespace ApiServiceClient
 
         public async Task<T> GetAsync<T, TKey>(TKey id)
         {
-            var task = await client.GetAsync($"{requestUri}/{id}");
+            var task = await _client.GetAsync($"{requestUri}/{id}");
 
             return task.IsSuccessStatusCode
                 ? task.Content.ReadAsAsync<T>().Result
@@ -63,7 +63,7 @@ namespace ApiServiceClient
 
         public async Task<(IEnumerable<T>, int)> GetListAsync<T>(int pageNo, int pageSize)
         {
-            var task = await client.GetAsync($"{requestUri}/list/{pageNo}-{pageSize}");
+            var task = await _client.GetAsync($"{requestUri}/list/{pageNo}-{pageSize}");
 
             return task.IsSuccessStatusCode
                 ? task.Content.ReadAsAsync<(IEnumerable<T>, int)>().Result
@@ -72,7 +72,7 @@ namespace ApiServiceClient
 
         public async Task<bool> UpdateAsync<T, TKey>(TKey id, T value)
         {
-            var task = await client.PutAsJsonAsync<T>($"{requestUri}/{id}", value);
+            var task = await _client.PutAsJsonAsync<T>($"{requestUri}/{id}", value);
 
             return task.IsSuccessStatusCode
                 ? task.Content.ReadAsAsync<bool>().Result

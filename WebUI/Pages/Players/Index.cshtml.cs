@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ApiServiceClient;
-using Infrastructure.Models;
+using Domain.Models;
 using LazZiya.TagHelpers.Alerts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,9 +13,9 @@ namespace WebUI.Pages.Players
 {
     public class IndexModel : PageModel
     {
-        private readonly IHttpServiceClient _client;
+        private readonly GenericApiService _client;
 
-        public IndexModel(IHttpServiceClient client)
+        public IndexModel(GenericApiService client)
         {
             _client = client;
             _client.ConfigureOptions(ops => { ops.TargetController = "players"; });

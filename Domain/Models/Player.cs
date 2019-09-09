@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Models
+namespace Domain.Models
 {
     public class Player : IHasId<string>, IOrdered
     {

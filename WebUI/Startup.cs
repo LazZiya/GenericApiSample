@@ -33,12 +33,17 @@ namespace WebUI
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddViewLocalization(ops=>
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddViewLocalization(ops =>
             {
                 ops.ResourcesPath = "ddd";
             });
 
-            services.AddTransient<IHttpServiceClient, HttpServiceClient>();
+            // read more about how to inject http client :
+            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-2.2#typed-clients
+            // use Typed client injection method:
+            services.AddHttpClient<GenericApiService>(ops=> {
+                ops.BaseAddress = new Uri("https://localhost:44376/api/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
