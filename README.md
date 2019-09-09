@@ -27,6 +27,7 @@ public class MyNewController : GenericBaseController<MyModel, int>
 `MyModel` must implement [`IHasId<TKey>`][4] and [`IOrdered`][5] interfaces.
 
 - [`IHasId<TKey>`][4] : Defines the type of the Id of the model, can be int, string or any IEquatable property. 
+
 - [`IOrdered`][5] : defines a `Name` parameter, so the models can be ordered by name
 
 ## Overriding methods
@@ -81,7 +82,7 @@ services.AddHttpClient<GenericApiService>(ops=> {
 [3]: https://github.com/LazZiya/GenericApiSample/blob/master/WebApi/Controllers/TreasuresController.cs
 [4]: https://github.com/LazZiya/GenericApiSample/blob/master/Infrastructure/Models/IHasId.cs
 [5]: https://github.com/LazZiya/GenericApiSample/blob/master/Infrastructure/Models/IOrdered.cs
-[6]: https://github.com/LazZiya/GenericApiSample/blob/master/WebUI/startup.cs#L45
+[6]: https://github.com/LazZiya/GenericApiSample/blob/master/WebUI/Startup.cs#L45
 [7]: https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 [8]: http://byterot.blogspot.com/2016/07/singleton-httpclient-dns.html
 [9]: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
